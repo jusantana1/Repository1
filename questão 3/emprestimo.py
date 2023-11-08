@@ -7,7 +7,7 @@ def adesão (nome, dt_adm, salario, emprestimo):
     data_limite = data_atual - timedelta(days=365 * 5)
 
     #compara se o funcionario tem tempo de admissão superior a 5 anos
-    if data_obj > data_limite:
+    if dt_adm > data_limite:
         print(" Agradecemos seu interesse, mas você não atende os requisitos mínimos do programa.")
         exit()
 
@@ -68,7 +68,7 @@ def notas_menor_valor(): #função para imprimir notas de baixo valor
             if total == 0:
                 break
 
-def notas_mistas(): #função p imprimir notas meio a meio
+def notas_mistas(): #função para imprimir notas meio a meio
     total= emprestimo
     ced = 100
     totalced = 0
@@ -91,7 +91,7 @@ def notas_mistas(): #função p imprimir notas meio a meio
             if total == 0:
                 break
 
-def switch_case(opcao): #menu de escolha do usuario
+def switch_case(opcao): #menu de escolha do usuario para opções de retirada
     switcher = {
         1: notas_maior_valor,
         2: notas_menor_valor,
@@ -105,8 +105,7 @@ def switch_case(opcao): #menu de escolha do usuario
 print("****************SIMULAÇÃO DE EMPRESTIMO*****************\n\n")
 
 nome= input("Escreva seu nome: ")
-dt_adm= input("Digite sua data de admissão (dd/mm/aaaa): ")
-data_obj= datetime.strptime(dt_adm, "%d/%m/%Y")
+dt_adm= datetime.strptime(input("Digite sua data de admissão (dd/mm/aaaa): "), "%d/%m/%Y")
 salario= float (input("Informe seu salario atual: "))
 emprestimo= int (input("Informe o valor do seu emprestimo: "))
 adesão (nome, dt_adm, salario, emprestimo)
